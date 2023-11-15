@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ad ve Soyad Birleştirme Projesi - Erol Ertekin</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #b4a6a6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 90vh;
+        }
+        .container {
+            text-align: center;
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 12px 24px;
+            font-size: 18px;
+            background-color: #034e05;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #d60d0d;
+        }
+
+        h1, h2 {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Full Stack Web Development kursu başvuru sorgulama ekranı:</h1>
+        <h2>Basvurunu Adını ve Soyadını girerek sorgulayabilirsin</h2>
+        <form id="adSoyadForm">
+            <label for="ad">Adınız:</label>
+            <input type="text" id="ad" name="ad" required><br>
+            <label for="soyad">Soyadınız:</label>
+            <input type="text" id="soyad" name="soyad" required><br>
+
+            <button type="button" onclick="adSoyadBirlestirici()">SORGULA</button>
+        </form>
+
+        <h2>BASVURU SONUCU</h2>
+        <p id="sonuc"></p>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        function adSoyadBirlestirici() {
+            var ad = document.getElementById("ad").value;
+            var soyad = document.getElementById("soyad").value;
+            var sonuc = document.getElementById("sonuc");
+            if (ad && soyad) {
+                var ulesikIsim = ad + " " + soyad;
+                sonuc.textContent = ulesikIsim + " Full Stack kursuna katılmaya hak kazanmıstır. Tebrikler!";
+            } else {
+                sonuc.textContent = "Lütfen adınızı ve soyadınızı girin.";
+            }
+        }
+    </script>
+</body>
+</html>
